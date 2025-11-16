@@ -8,50 +8,38 @@ version = '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
     mavenLocal()
-    // A2A uses Maven Central releases too, so no extra repo required.
 }
 
 ext {
-    a2aVersion = "0.3.2.Final"   // <-- Replace with latest release
+    adkVersion = "0.3.0"
+    a2aVersion = "0.3.0"   // <-- use the latest actual release
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // JUnit
+    testImplementation platform("org.junit:junit-bom:5.10.0")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 
     // ----------------------------
-    // GOOGLE ADK (Agent Development Kit)
-    // https://github.com/google/adk-java
+    // GOOGLE ADK
     // ----------------------------
-    implementation "com.google.adk:google-adk:0.3.0"
-    implementation "com.google.adk:google-adk-dev:0.3.0"
-
+    implementation "com.google.adk:google-adk:${adkVersion}"
+    implementation "com.google.adk:google-adk-dev:${adkVersion}"
 
     // ----------------------------
-    // A2A – Agent-to-Agent SDK
-    // https://github.com/a2aproject/a2a-java
-    // You choose which transports you want:
-    // jsonrpc / grpc / rest
+    // A2A – choose transports you plan to use
     // ----------------------------
-
-    // JSON-RPC
     implementation "io.github.a2asdk:a2a-java-sdk-reference-jsonrpc:${a2aVersion}"
-
-    // gRPC
     implementation "io.github.a2asdk:a2a-java-sdk-reference-grpc:${a2aVersion}"
-
-    // REST
     implementation "io.github.a2asdk:a2a-java-sdk-reference-rest:${a2aVersion}"
 
-
     // ----------------------------
-    // MCP – Model Context Protocol SDK
-    // https://github.com/modelcontextprotocol
+    // MCP
     // ----------------------------
     implementation platform("io.modelcontextprotocol.sdk:mcp")
-    // If you want the core:
-    implementation "io.modelcontextprotocol.sdk:mcp"
+    implementation "io.modelcontextprotocol.sdk:mcp"   // core module
 }
 
 test {
