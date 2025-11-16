@@ -12,7 +12,7 @@ repositories {
 
 ext {
     adkVersion = "0.3.0"
-    a2aVersion = "0.3.0"   // <-- use the latest actual release
+    a2aVersion = "0.3.2.Final"   // <-- use the latest actual release
 }
 
 dependencies {
@@ -32,8 +32,6 @@ dependencies {
     // A2A – choose transports you plan to use
     // ----------------------------
     implementation "io.github.a2asdk:a2a-java-sdk-reference-jsonrpc:${a2aVersion}"
-    implementation "io.github.a2asdk:a2a-java-sdk-reference-grpc:${a2aVersion}"
-    implementation "io.github.a2asdk:a2a-java-sdk-reference-rest:${a2aVersion}"
 
     // ----------------------------
     // MCP
