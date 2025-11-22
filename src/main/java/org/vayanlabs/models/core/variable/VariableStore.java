@@ -53,6 +53,10 @@ public class VariableStore {
         }
     }
 
+    public boolean exists(String key) {
+        return memory.containsKey(key);
+    }
+
     /* -------------------------------------------------------------
      * CRUD OPERATIONS (BY VARIABLE REFERENCE)
      * ------------------------------------------------------------- */

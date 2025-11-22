@@ -22,7 +22,7 @@ public class Node {
 
     public void init(VariableStore memory, VariableStore workflowArtifacts, VariableStore workflowMemories) {
         for (Layer layer : layers) {
-            layer.init(memory, workflowArtifacts, workflowMemories);
+            layer.init();
         }
     }
 
